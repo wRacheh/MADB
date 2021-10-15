@@ -1,0 +1,84 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+<div class="container d-flex justify-content-center">
+
+
+    <div class="row ">
+        <div class="col-md-4" *ngFor="let el of mangaList">
+            <div class="card card-flip">
+                <div class="card-header text-center" style="height: 5rem; ">
+                    <h5 class="card-title">{{el?.attributes?.slug}}</h5>
+                </div>
+                <img src={{el?.attributes?.coverImage?.small}} class="card-img-top" alt="...">
+                <div class="card-front">
+                    <div class="card-body">
+                        <span class="text-light"> <strong> {{el?.attributes?.ageRatingGuide}}</strong></span>
+                        <br>
+                        <span class="text-light"> <strong> {{el?.attributes?.episodeCount}} Episodes</strong></span>
+                        <br>
+                        <span *ngIf='el?.attributes?.status == "finished"' class="text-danger"
+                           >{{el?.attributes?.status}}</span>
+                        <span *ngIf='el?.attributes?.status !== "finished"'
+                            class="text-success">{{el?.attributes?.status}}</span>
+                        <br>
+
+
+                    </div>
+                </div>
+                <div class="card-back bg-white">
+                    <div class="card">
+                        <div class="card-header">
+                            synopsis
+                        </div>
+                        <div class="card-body">
+                            <ul>
+                                <strong>Japonaise Name</strong> <br>
+                                <p>{{el?.attributes?.titles.ja_jp}}</p>
+                            </ul>
+                            <ul>
+                                <strong>Rating Rank</strong> <br>
+                                <p>{{el?.attributes?.ratingRank}}</p>
+                            </ul>
+                            <ul>
+
+                                <strong>Date </strong>
+                                
+                                <p>
+                                    {{el?.attributes?.startDate}}
+                                </p>
+                            </ul>
+                                
+
+                            <button id="btn" (click)="getDetails(el?.id)"><span>More...</span></button>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="containers d-flex justify-content-center">
+    <div class="row">
+        <div class="frame">
+
+            <a class="btn" (click)="previousPage(0)">
+                <i class="fas fa-backward"></i>
+            </a>
+            <a class="btn" (click)="previousPage(pagenumber=pagenumber-18)">
+                <i class="fas fa-caret-left"></i>
+            </a>
+            <a class="btn" (click)="nextPage(pagenumber=pagenumber+18)">
+                <i class="fas fa-caret-right"></i>
+            </a>
+
+            <a class="btn" (click)="lastPage(12062)">
+                <i class="fas fa-forward"></i>
+            </a>
+
+        </div>
+    </div>
+</div>

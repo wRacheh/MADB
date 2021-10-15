@@ -1,0 +1,68 @@
+<div class="container  justify-content-center">
+
+    <div class="card " id="carousel">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="{{animeDetails?.attributes.coverImage.large}}" alt="Random first slide" height="350px"
+                        width="100%">
+                </div>
+                <div class="carousel-caption">
+                    <h3>{{animeDetails?.attributes.slug}}</h3>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="{{animeDetails?.attributes.posterImage.small}}" alt="Random first slide" height="350px"
+                        width="1100px">
+                </div>
+                <div class="carousel-caption">
+                    <h3>{{animeDetails?.attributes.slug}}</h3>
+                </div>
+            </ng-template>
+
+        </ngb-carousel>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card " id="details">
+                <div class="card-header">
+                    <h4 class="title"> {{animeDetails?.attributes.slug}} ( {{animeDetails?.attributes?.titles.ja_jp}})
+                    </h4>
+
+                </div>
+                <ul>
+                    <p><strong>{{animeDetails?.attributes.ageRatingGuide}} || {{animeDetails?.attributes.subtype}} </strong></p>
+
+                    <p><strong>Start date:</strong>{{animeDetails?.attributes.startDate}}</p>
+                    <p><strong *ngIf='animeDetails?.attributes.endDate !== null'>End
+                            Date:</strong>{{animeDetails?.attributes.endDate}}</p>
+                    <p><strong *ngIf='animeDetails?.attributes.endDate === null'>End Date:</strong>
+                        {{animeDetails?.attributes.status}}</p>
+                    <p><strong>Episodes:</strong>{{animeDetails?.attributes.episodeCount}}</p>
+                    <p><strong>Popularity Rank:</strong>{{animeDetails?.attributes.popularityRank}}</p>
+                    <p><strong>Rating Rank:</strong>{{animeDetails?.attributes.ratingRank}}</p>
+                    <p><strong>Average Rating:</strong>{{animeDetails?.attributes.averageRating}}</p>
+                    <p><strong>User Count :</strong>{{animeDetails?.attributes.userCount}}</p>
+                    <p><strong>Favorites Count :</strong>{{animeDetails?.attributes.favoritesCount}}</p>
+                    <p><strong>Next Episode :</strong>{{animeDetails?.attributes.nextRelease}}</p>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card" id="description">
+             <strong>Description</strong>
+             <br>   
+                {{animeDetails?.attributes.description}}
+                <strong> Trailer :</strong>
+                <a class="text-dark" href="{{yturl}}"> >Official Youtube Trailer </a>
+            </div>
+        </div>
+
+
+
+    </div>
+        <a routerLink="/anime/liste" class="btn">BACK TO LIST</a>

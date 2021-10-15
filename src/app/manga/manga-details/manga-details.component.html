@@ -1,0 +1,67 @@
+<div class="container  justify-content-center">
+
+    <div class="card " id="carousel">
+        <ngb-carousel>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="{{mangadetails?.attributes.coverImage.large}}" alt="Random first slide" height="350px"
+                        width="100%">
+                </div>
+                <div class="carousel-caption">
+                    <h3>{{mangadetails?.attributes.slug}}</h3>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <img src="{{mangadetails?.attributes.posterImage.small}}" alt="Random first slide" height="350px"
+                        width="1100px">
+                </div>
+                <div class="carousel-caption">
+                    <h3>{{mangadetails?.attributes.slug}}</h3>
+                </div>
+            </ng-template>
+
+        </ngb-carousel>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card " id="details">
+                <div class="card-header">
+                    <h4 class="title"> {{mangadetails?.attributes.slug}} ( {{mangadetails?.attributes?.titles.en_jp}})
+                    </h4>
+
+                </div>
+                <ul>
+                    <p><strong>{{mangadetails?.attributes.ageRatingGuide}} || {{mangadetails?.attributes.subtype}} </strong></p>
+
+                    <p><strong>Start date:</strong>{{mangadetails?.attributes.startDate}}</p>
+                    <p><strong *ngIf='mangadetails?.attributes.endDate !== null'>End
+                            Date:</strong>{{mangadetails?.attributes.endDate}}</p>
+                    <p><strong *ngIf='mangadetails?.attributes.endDate === null'>End Date:</strong>
+                        {{mangadetails?.attributes.status}}</p>
+                    <p><strong>Chapter:</strong>{{mangadetails?.attributes.chapterCount}}</p>
+                    <p><strong>Popularity Rank:</strong>{{mangadetails?.attributes.popularityRank}}</p>
+                    <p><strong>Rating Rank:</strong>{{mangadetails?.attributes.ratingRank}}</p>
+                    <p><strong>Average Rating:</strong>{{mangadetails?.attributes.averageRating}}</p>
+                    <p><strong>User Count :</strong>{{mangadetails?.attributes.userCount}}</p>
+                    <p><strong>Favorites Count :</strong>{{mangadetails?.attributes.favoritesCount}}</p>
+                    <p><strong>Status:</strong>{{mangadetails?.attributes.status}}</p>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card" id="description">
+             <strong>Description</strong>
+             <br>   
+                {{mangadetails?.attributes.description}}
+               
+            </div>
+        </div>
+
+
+
+    </div>
+        <a routerLink="/manga/liste" class="btn">BACK TO LIST</a>
