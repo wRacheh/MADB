@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AnimeDetailsComponent } from './manga/anime-details/anime-details.component';
 import { NgxYoutubePlayerModule } from "ngx-youtube-player";
 import { MangaDetailsComponent } from './manga/manga-details/manga-details.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { MangaDetailsComponent } from './manga/manga-details/manga-details.compo
     ListComponent,
     ListeComponent,
     AnimeDetailsComponent,
-    MangaDetailsComponent
+    MangaDetailsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
